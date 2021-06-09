@@ -1,0 +1,21 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ocr_main.js",
+  "dependencies": {
+    "@google-cloud/documentai": "^2.10.0",
+    "@google-cloud/storage": "^5.8.5",
+    "@google-cloud/vision": "^2.3.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "Rien ",  
+    "start": "set  GOOGLE_APPLICATION_CREDENTIALS='./apikey.json' ", 
+    "server": "nodemon ocr_main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
