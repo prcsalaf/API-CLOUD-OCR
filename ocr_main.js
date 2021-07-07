@@ -1,20 +1,27 @@
 /**
  * TODO(developer): Uncomment these variables before running the sample.
  */
- const express = require('express');
- const app = express();
+const express = require('express');
+   const app = express();
 
-const projectId = 'dom-function';
+const projectId = 'prc-function';
 const location = 'us'; // Format is 'us' or 'eu'
-const processorId = '39d5bad65e27663c'; // Create processor in Cloud Console
-const filePath = 'cin.pdf';
+const processorId = 'c34a944853e14c3a'; // Create processor in Cloud Console
+ const filePath = 'mycin.pdf';
+
+const querystring = require('querystring');
+const data = querystring.parse( process.argv[2] || '' );
+
+//const filePath = data.pdf;
 
 const {DocumentProcessorServiceClient} =
   require('@google-cloud/documentai').v1;
 
 // Instantiates a client
 const client = new DocumentProcessorServiceClient();
-
+  processDocument().catch((er) =>{ console.log(er)}   );
+  //   processDocument() ;
+  
 async function processDocument() {
   // The full resource name of the processor, e.g.:
   // projects/project-id/locations/location/processor/processor-id
@@ -33,8 +40,7 @@ async function processDocument() {
     rawDocument: {
       content: encodedImage,
       mimeType: 'application/pdf',
-    },
-    keyFilename: 'apikey.json'
+    } 
   };
 
   // Recognizes text entities in the PDF document
@@ -80,8 +86,6 @@ async function processDocument() {
     console.log('Extracted key value pair:');
     console.log(`\t(${fieldName}, ${fieldValue})`);
   }
-}
+} 
 
-processDocument().catch((er) =>{ console.log(er)} );
-
-app.listen(5000, "127.0.0.1", () => console.log("Server running"));
+  app.listen(5000, "127.0.0.1", () => console.log("Server running"));

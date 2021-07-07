@@ -1,5 +1,6 @@
 {
   "name": "package.json",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "",
   "main": "ocr_main.js",
@@ -12,8 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "Rien ",  
-    "start": "set  GOOGLE_APPLICATION_CREDENTIALS='./apikey.json' ", 
+    "test": "Rien ",
     "server": "nodemon ocr_main.js"
   },
   "author": "",
